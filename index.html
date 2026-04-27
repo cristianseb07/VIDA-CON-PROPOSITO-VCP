@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida con Propósito - Comunidad Cristiana</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Bienvenido a la Iglesia Vida con Propósito. Somos una comunidad cristiana unida en el amor de Dios. Únete a nosotros en nuestros cultos y eventos.">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Propio -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Header / Nav -->
+    <header id="main-header">
+        <a href="#" class="logo-container">
+            <i class="fas fa-church" style="font-size: 1.8rem; color: var(--primary);"></i>
+            <span id="church-name" style="font-family: 'Outfit', sans-serif;">Cargando...</span>
+        </a>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button id="theme-toggle" class="btn-icon" title="Cambiar modo">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero / Home -->
+    <section id="home" class="hero">
+        <h1 id="welcome-title">Bienvenido</h1>
+        <p id="welcome-message"></p>
+        <div class="hero-btns">
+            <a href="#eventos" class="btn btn-primary">Próximos Eventos</a>
+        </div>
+    </section>
+
+    <!-- Nosotros (Misión/Visión) -->
+    <section id="nosotros" class="nosotros">
+        <h2 class="section-title">Nuestra Esencia</h2>
+        <div class="grid-container">
+            <div class="card card-nosotros">
+                <div class="card-content">
+                    <h3><i class="fas fa-bullseye" style="color: var(--primary); margin-right: 10px;"></i>Misión</h3>
+                    <p id="mision-text">Cargando...</p>
+                </div>
+            </div>
+            <div class="card card-nosotros">
+                <div class="card-content">
+                    <h3><i class="fas fa-eye" style="color: var(--primary); margin-right: 10px;"></i>Visión</h3>
+                    <p id="vision-text">Cargando...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Live / Latest -->
+    <section id="transmision" class="youtube-section">
+        <h2 class="section-title">Última Transmisión</h2>
+        <div id="youtube-live-indicator" style="display: none; color: #ff0000; font-weight: bold; margin-bottom: 1rem;">
+            <i class="fas fa-circle-dot"></i> EN VIVO AHORA
+        </div>
+        <div class="video-container" id="video-container">
+            <!-- El iframe se cargará aquí -->
+        </div>
+
+        <div class="multimedia-feed" style="margin-top: 5rem;">
+            <h3 class="section-subtitle"><i class="fab fa-instagram"></i> Lo nuevo en Instagram</h3>
+            <div id="instagram-images-reel" class="reel-container">
+                <!-- Se cargará desde JS -->
+            </div>
+            
+            <h3 class="section-subtitle" style="margin-top: 3rem;"><i class="fas fa-play"></i> Reels en Instagram</h3>
+            <div id="instagram-videos-reel" class="reel-container">
+                <!-- Se cargará desde JS -->
+            </div>
+            
+            <a href="#" id="btn-instagram-more" class="btn" style="margin-top: 1rem; display: inline-block;">Ver más en Instagram</a>
+        </div>
+
+        <!-- Feed de YouTube (Galería) -->
+        <div class="multimedia-feed" style="margin-top: 5rem;">
+            <h3 class="section-subtitle"><i class="fab fa-youtube"></i> Mensajes Anteriores</h3>
+            <div id="youtube-feed-grid" class="reel-container">
+                <!-- Se cargará desde JS -->
+            </div>
+            <a href="#" id="btn-youtube-more" class="btn" style="margin-top: 1rem; display: inline-block;">Ir al Canal de YouTube</a>
+        </div>
+    </section>
+
+    <!-- Eventos -->
+    <section id="eventos">
+        <h2 class="section-title">Calendario de Eventos</h2>
+        <div id="eventos-grid" class="grid-container">
+            <!-- Eventos inyectados por JS -->
+        </div>
+    </section>
+
+    <!-- Noticias -->
+    <section id="noticias">
+        <h2 class="section-title">Novedades</h2>
+        <div id="noticias-grid" class="grid-container">
+            <!-- Noticias inyectadas por JS -->
+        </div>
+    </section>
+
+    <!-- Pedidos de Oración -->
+    <section id="oracion" class="form-section">
+        <h2 class="section-title">¿Necesitas Oración?</h2>
+        <div class="form-container">
+            <form id="prayer-form">
+                <div class="form-group">
+                    <label for="prayer-name">Tu Nombre (Opcional)</label>
+                    <input type="text" id="prayer-name" placeholder="Escribe tu nombre...">
+                </div>
+                <div class="form-group">
+                    <label for="prayer-message">Pedido de Oración</label>
+                    <textarea id="prayer-message" rows="4" placeholder="Cuéntanos cómo podemos orar por ti..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contacto / Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 id="footer-church-name">Iglesia</h4>
+                <p id="footer-address"></p>
+                <p id="footer-email"></p>
+                <div id="footer-phones"></div>
+            </div>
+            <div class="footer-section">
+                <h4>Menú</h4>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links" id="social-links">
+                    <!-- Iconos desde JS -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span id="copyright-name"></span>. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a id="whatsapp-btn" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts de Datos (Locales) -->
+    <script src="config.js?v=2"></script>
+    <script src="noticias.js?v=2"></script>
+    <script src="eventos.js?v=2"></script>
+    <script src="multimedia.js?v=2"></script>
+    <!-- JS Principal -->
+    <script src="js/app.js?v=2"></script>
+</body>
+</html>

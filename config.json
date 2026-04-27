@@ -1,0 +1,22 @@
+{
+  "nombre_iglesia": "Iglesia Oasis de Fe",
+  "logo": "assets/logo.png",
+  "fondo_hero": "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=1920",
+  "mensaje_bienvenida": "Un lugar para conectar con Dios y su amor infinito.",
+  "mision": "Nuestra misión es llevar el mensaje de esperanza a cada rincón de nuestra comunidad, transformando vidas a través de Jesucristo.",
+  "vision": "Ser una comunidad de creyentes unida, que inspira transformación espiritual y social en nuestra ciudad.",
+  "direccion": "Av. Esperanza 777, CP 1234, Ciudad Esperanza",
+  "contacto": {
+    "telefonos": ["+54 11 1234-5678", "+54 11 8765-4321"],
+    "whatsapp_numero": "541112345678",
+    "whatsapp_mensaje_predefinido": "¡Bendiciones! Quisiera ponerme en contacto con la iglesia.",
+    "email": "contacto@oasisdefe.com"
+  },
+  "redes_sociales": {
+    "instagram": "https://instagram.com/oasisdefe",
+    "tiktok": "https://tiktok.com/@oasisdefe",
+    "facebook": "https://facebook.com/oasisdefe",
+    "youtube_channel_url": "https://www.youtube.com/@OasisDeFe"
+  },
+  "youtube_embed_id": "dQw4w9WgXcQ"
+}
