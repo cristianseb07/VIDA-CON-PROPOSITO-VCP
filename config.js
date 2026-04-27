@@ -3,9 +3,9 @@
 
 const CONFIG_DATA = {
   "nombre_iglesia": "Vida con Propósito",
-  "nombre_pestana": "Vida con Propósito - Comunidad Cristiana",
-  "nombre_navbar": "Vida con Propósito",
-  "nombre_bienvenida": "Vida con Propósito",
+  "nombre_pestana": "VCP",
+  "nombre_navbar": "",
+  "nombre_bienvenida": "VIDA CON PROPÓSITO",
   "logo": "assets/Logo.jpeg", 
   "fondo_hero": "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=1920", // Imagen de fondo de bienvenida
   "mensaje_bienvenida": "Dios tiene un propósito para tu vida❗",
