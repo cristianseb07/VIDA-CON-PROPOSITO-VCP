@@ -26,7 +26,7 @@ class ChurchWeb {
             this.setupTheme();
             this.setupMenu();
             this.setupForms();
-            this.setupYouTube();
+            await this.setupYouTube();
             this.setupAnimations();
             console.log('🚀 Web Hidratada correctamente (Modo Manual/Config)');
         } catch (error) {
@@ -356,16 +356,13 @@ class ChurchWeb {
         });
     }
 
-    setupYouTube() {
+    async setupYouTube() {
         const container = document.getElementById('video-container');
         const widgetUrl = this.config.youtube_widget_url;
         let videoId = this.config.youtube_embed_id;
 
-        // Si es una URL completa, extraemos solo el ID
-        videoId = this.extractYouTubeId(videoId);
-
+        // 1. Si hay un widget de EmbedSocial, tiene prioridad absoluta
         if (widgetUrl && widgetUrl !== "") {
-            // Metodología EmbedSocial (Widget permanente)
             container.innerHTML = `
                 <iframe 
                     id="main-yt-player"
@@ -379,8 +376,22 @@ class ChurchWeb {
                     style="width:100%; min-height: 450px; border:none; border-radius: 12px; overflow:hidden;">
                 </iframe>
             `;
-        } else {
-            // Metodología Estándar (Por ID de video)
+            return;
+        }
+
+        // 2. Si está activada la automatización "a mano", buscamos el último video
+        if (this.config.automatizar_video_reciente && this.config.redes_sociales.youtube_channel_id) {
+            console.log("🔍 Buscando el video más reciente de forma automática...");
+            const latestId = await this.fetchLatestVideoFromRSS(this.config.redes_sociales.youtube_channel_id);
+            if (latestId) {
+                console.log("✅ Video encontrado:", latestId);
+                videoId = latestId;
+            }
+        }
+
+        // 3. Renderizar el reproductor con el ID final (manual o automático)
+        if (videoId) {
+            videoId = this.extractYouTubeId(videoId);
             const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0`;
             
             container.innerHTML = `
@@ -393,6 +404,8 @@ class ChurchWeb {
                     allowfullscreen>
                 </iframe>
             `;
+        } else {
+            container.innerHTML = `<p style="padding: 2rem; text-align: center; color: var(--text-soft);">No hay un ID de video configurado.</p>`;
         }
     }
 
@@ -407,6 +420,31 @@ class ChurchWeb {
         const match = url.match(regExp);
 
         return (match && match[2].length === 11) ? match[2] : url;
+    }
+
+    /**
+     * Busca el video más reciente mediante el Feed RSS de YouTube (vía Proxy)
+     */
+    async fetchLatestVideoFromRSS(channelId) {
+        try {
+            // Usamos un proxy de CORS público para poder leer el RSS de YouTube desde el navegador
+            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
+
+            const response = await fetch(proxyUrl);
+            const text = await response.text();
+            
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(text, "text/xml");
+            
+            // El primer 'entry' es el video más reciente
+            const latestVideoId = xmlDoc.querySelector("entry yt\\:videoId, entry videoId")?.textContent;
+            
+            return latestVideoId || null;
+        } catch (error) {
+            console.error("❌ Error al buscar el video automático:", error);
+            return null;
+        }
     }
 
 
