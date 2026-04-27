@@ -22,5 +22,6 @@
     "youtube_channel_url": "https://www.youtube.com/@OasisDeFe"
   },
   "youtube_embed_id": "dQw4w9WgXcQ",
-  "youtube_widget_url": ""
+  "youtube_widget_url": "",
+  "automatizar_video_reciente": true
 }

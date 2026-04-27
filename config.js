@@ -26,6 +26,7 @@ const CONFIG_DATA = {
     "youtube_channel_url": "https://www.youtube.com/iglesiavidaconpropositocarlospaz",
     "youtube_channel_id": "UCjhRkuRvRtpnaJKnG0vIjYA" // ID del canal para detectar transmisiones en vivo automáticamente
   },
-  "youtube_embed_id": "https://www.youtube.com/live/BR4xYwA7m_A?si=4cytLqO5BpRwMz9c", // ID de respaldo (Último mensaje real del canal)
-  "youtube_widget_url": "" // Para automatizar con EmbedSocial, pega aquí el link de tu widget
+  "youtube_embed_id": "e5cyPXCTIoo", // ID de respaldo
+  "youtube_widget_url": "", // Para automatizar con EmbedSocial
+  "automatizar_video_reciente": true // <--- ¡NUEVO! Si está en true, busca el último video del canal automáticamente
 };
