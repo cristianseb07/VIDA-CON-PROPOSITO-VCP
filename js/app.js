@@ -358,22 +358,55 @@ class ChurchWeb {
 
     setupYouTube() {
         const container = document.getElementById('video-container');
-        const videoId = this.config.youtube_embed_id;
+        const widgetUrl = this.config.youtube_widget_url;
+        let videoId = this.config.youtube_embed_id;
 
-        // La forma más compatible de incrustar YouTube en archivos locales (file://)
-        // es usar la URL de embed más simple posible, sin parámetros de API o JS.
-        const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0`;
-        
-        container.innerHTML = `
-            <iframe 
-                id="main-yt-player"
-                src="${embedUrl}" 
-                title="Mensaje de hoy" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        `;
+        // Si es una URL completa, extraemos solo el ID
+        videoId = this.extractYouTubeId(videoId);
+
+        if (widgetUrl && widgetUrl !== "") {
+            // Metodología EmbedSocial (Widget permanente)
+            container.innerHTML = `
+                <iframe 
+                    id="main-yt-player"
+                    src="${widgetUrl}" 
+                    title="Transmisión en Vivo" 
+                    frameborder="0" 
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="width:100%; min-height: 450px; border:none; border-radius: 12px; overflow:hidden;">
+                </iframe>
+            `;
+        } else {
+            // Metodología Estándar (Por ID de video)
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0`;
+            
+            container.innerHTML = `
+                <iframe 
+                    id="main-yt-player"
+                    src="${embedUrl}" 
+                    title="Mensaje de hoy" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+        }
+    }
+
+    /**
+     * Extrae el ID de un video de YouTube desde cualquier formato de URL
+     */
+    extractYouTubeId(url) {
+        if (!url) return "";
+        if (url.length === 11) return url; // Ya es un ID
+
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|live\/)([^#\&\?]*).*/;
+        const match = url.match(regExp);
+
+        return (match && match[2].length === 11) ? match[2] : url;
     }
 
 
