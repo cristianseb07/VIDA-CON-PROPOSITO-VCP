@@ -73,10 +73,10 @@ class ChurchWeb {
     }
 
     renderConfig() {
-        const { nombre_iglesia, nombre_navbar, nombre_bienvenida, logo, mensaje_bienvenida, mision, vision, direccion, contacto, redes_sociales } = this.config;
+        const { nombre_iglesia, nombre_pestana, nombre_navbar, nombre_bienvenida, logo, mensaje_bienvenida, mision, vision, direccion, contacto, redes_sociales } = this.config;
 
         // General
-        document.title = `${nombre_iglesia} - Comunidad Cristiana`;
+        document.title = nombre_pestana || `${nombre_iglesia} - Comunidad Cristiana`;
         document.getElementById('church-name').textContent = nombre_navbar || nombre_iglesia;
         document.getElementById('footer-church-name').textContent = nombre_iglesia;
         document.getElementById('copyright-name').textContent = nombre_iglesia;
