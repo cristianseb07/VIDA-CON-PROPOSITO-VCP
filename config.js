@@ -2,7 +2,7 @@
 // IMPORTANTE: No borrar el "const CONFIG_DATA =" del inicio. Solo edita lo que está entre las llaves { }.
 
 const CONFIG_DATA = {
-  "nombre_iglesia": "Vida con Propósito",
+  "nombre_iglesia": "",
   "nombre_pestana": "VCP",
   "nombre_navbar": "",
   "nombre_bienvenida": "VIDA CON PROPÓSITO",
