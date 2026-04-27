@@ -73,18 +73,18 @@ class ChurchWeb {
     }
 
     renderConfig() {
-        const { nombre_iglesia, logo, mensaje_bienvenida, mision, vision, direccion, contacto, redes_sociales } = this.config;
+        const { nombre_iglesia, nombre_navbar, nombre_bienvenida, logo, mensaje_bienvenida, mision, vision, direccion, contacto, redes_sociales } = this.config;
 
         // General
         document.title = `${nombre_iglesia} - Comunidad Cristiana`;
-        document.getElementById('church-name').textContent = nombre_iglesia;
+        document.getElementById('church-name').textContent = nombre_navbar || nombre_iglesia;
         document.getElementById('footer-church-name').textContent = nombre_iglesia;
         document.getElementById('copyright-name').textContent = nombre_iglesia;
 
         // Logo in header (Si hay logo en config lo usamos, si no mantenemos el icono default)
         if (logo && logo !== "") {
             const logoContainer = document.querySelector('.logo-container');
-            logoContainer.innerHTML = `<img src="${logo}" alt="${nombre_iglesia}" class="main-logo"> <span id="church-name" style="font-family: 'Outfit', sans-serif;">${nombre_iglesia}</span>`;
+            logoContainer.innerHTML = `<img src="${logo}" alt="${nombre_iglesia}" class="main-logo"> <span id="church-name" style="font-family: 'Outfit', sans-serif;">${nombre_navbar || nombre_iglesia}</span>`;
         }
 
         // Hero
@@ -96,7 +96,7 @@ class ChurchWeb {
             welcomeHero.classList.add('hero-custom-bg');
         }
 
-        document.getElementById('welcome-title').textContent = `Bienvenido a ${nombre_iglesia}`;
+        document.getElementById('welcome-title').textContent = `Bienvenidos a ${nombre_bienvenida || nombre_iglesia}`;
         document.getElementById('welcome-message').textContent = mensaje_bienvenida;
 
         // Nosotros
