@@ -3,7 +3,7 @@
 
 const CONFIG_DATA = {
   "nombre_iglesia": "Vida con Propósito",
-  "logo": "D:/WEB IGLESIA/assets/Logo.jpeg", 
+  "logo": "assets/Logo.jpeg", 
   "fondo_hero": "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=1920", // Imagen de fondo de bienvenida
   "mensaje_bienvenida": "Dios tiene un propósito para tu vida❗",
   "mision": "Somos una familia que estamos en la ciudad para: Acercar personas a Jesús e integrarlas a su familia, enseñarles a vivir como Cristo y capacitarlas para el servicio en la iglesia y su comunidad, de tal manera que honren a Dios.",
