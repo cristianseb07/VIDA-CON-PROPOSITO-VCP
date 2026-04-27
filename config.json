@@ -1,5 +1,7 @@
 {
   "nombre_iglesia": "Iglesia Oasis de Fe",
+  "nombre_navbar": "Iglesia Oasis de Fe",
+  "nombre_bienvenida": "Iglesia Oasis de Fe",
   "logo": "assets/Logo.jpeg",
   "fondo_hero": "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=1920",
   "mensaje_bienvenida": "Un lugar para conectar con Dios y su amor infinito.",
